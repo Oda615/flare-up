@@ -1,0 +1,3 @@
+# Example domains
+subdomain.domain.com true
+subdomain2.domain2.com xyz false
