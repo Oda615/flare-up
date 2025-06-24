@@ -1,4 +1,4 @@
-SPANISH---------------------------------------------------------
+# ESPAÑOL/SPANISH
 
 Script en Bash para actualizar registros DNS tipo A en Cloudflare usando tu IP pública actual. Ideal para servidores con IP dinámica como Proxmox, servidores caseros o entornos con conexiones no estáticas.
 
@@ -72,7 +72,7 @@ Para ejecutar automáticamente cada 5 minutos:
 - Verifica dependencias (`curl`, `jq`)
 - Valida el token antes de ejecutar
 
----ENGLISH
+# INGLES/ENGLISH
 
 # flare-up
 
