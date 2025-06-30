@@ -24,7 +24,7 @@ Este script detecta la IP pública, encuentra automáticamente la zona correspon
 ### Instalación y uso
 
 ```bash
-git clone https://github.com/tuusuario/flare-up.git
+git clone https://github.com/oda615/flare-up.git
 cd flare-up
 
 echo "CF_API_TOKEN=tu_token_aqui" > .env
@@ -86,7 +86,7 @@ This script detects the current public IP, auto-detects the proper DNS zone from
 ### Installation and usage
 
 ```bash
-git clone https://github.com/youruser/flare-up.git
+git clone https://github.com/oda615/flare-up.git
 cd flare-up
 
 echo "CF_API_TOKEN=your_token_here" > .env
