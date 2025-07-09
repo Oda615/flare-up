@@ -1,3 +1,5 @@
 # Example domains
-subdomain.domain.com true
-subdomain2.domain2.com false
+A vpn.ejemplo.com true 120 main
+AAAA ipv6.ejemplo.com false 300 backup
+CNAME www.ejemplo.com false
+archivo.ejemplo.net
