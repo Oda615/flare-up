@@ -6,7 +6,8 @@
 
 Script en Bash para actualizar registros DNS tipo A en Cloudflare usando tu IP pública actual. Ideal para servidores con IP dinámica como Proxmox, servidores caseros o entornos con conexiones no estáticas.
 
-Este script detecta la IP pública, encuentra automáticamente la zona correspondiente en Cloudflare y actualiza (o crea) los registros A necesarios. También mantiene el estado del proxy y registra las operaciones con marcas de tiempo.
+Este script detecta la IP pública, encuentra automáticamente la zona correspondiente en Cloudflare y actualiza (o crea) los registros A necesarios. También mantiene el estado del proxy y registra las operaciones con marcas de tiempo.  
+Ahora también permite elegir idioma de salida: español o inglés.
 
 ---
 
@@ -24,10 +25,17 @@ Este script detecta la IP pública, encuentra automáticamente la zona correspon
 ### Instalación y uso
 
 ```bash
-git clone https://github.com/oda615/flare-up.git
+git clone https://github.com/Oda615/flare-up.git
 cd flare-up
 
-echo "CF_API_TOKEN=tu_token_aqui" > .env
+cp .env.example .env
+nano .env  # Añade tu token y el idioma
+
+Contenido de ejemplo para `.env`:
+```env
+CF_API_TOKEN=your_cloudflare_api_token_here
+LANG=es
+```
 ```
 
 Edita el archivo `dominios.txt` con tus dominios (uno por línea):
@@ -48,7 +56,7 @@ chmod +x flare-up.sh
 ### Automatización con cron
 
 ```bash
-*/5 * * * * /ruta/absoluta/flare-up.sh >> /var/log/flare-up.log 2>&1
+*/5 * * * * /ruta/completa/flare-up/flare-up.sh >> /var/log/flare-up.log 2>&1
 ```
 
 ---
@@ -57,8 +65,9 @@ chmod +x flare-up.sh
 
 - Detección automática de IP pública
 - Soporte para múltiples dominios y zonas
-- Crea registros si no existen
+- Crea registros A si no existen
 - Mantiene el estado del proxy
+- Mensajes en español o inglés (configurable en `.env`)
 - Verifica dependencias (`curl`, `jq`)
 - Valida el token antes de ejecutar
 
@@ -66,9 +75,10 @@ chmod +x flare-up.sh
 
 ## 🇬🇧 ENGLISH
 
-Bash script to update A records in Cloudflare using your current public IP. Ideal for servers with dynamic IPs like Proxmox, home servers or remote environments.
+Bash script to update A records in Cloudflare using your current public IP. Ideal for servers with dynamic IPs like Proxmox, home servers, or dynamic network environments.
 
-This script detects the current public IP, auto-detects the proper DNS zone from Cloudflare, and updates (or creates) the relevant A records. It preserves the proxy state and logs actions with timestamps.
+This script detects the current public IP, auto-detects the proper DNS zone from Cloudflare, and updates (or creates) the relevant A records. It also preserves the proxy status and logs operations with timestamps.  
+Now supports bilingual output: Spanish or English.
 
 ---
 
@@ -86,13 +96,20 @@ This script detects the current public IP, auto-detects the proper DNS zone from
 ### Installation and usage
 
 ```bash
-git clone https://github.com/oda615/flare-up.git
+git clone https://github.com/Oda615/flare-up.git
 cd flare-up
 
-echo "CF_API_TOKEN=your_token_here" > .env
+cp .env.example .env
+nano .env  # Add your token and language
+
+Example content for `.env`:
+```env
+CF_API_TOKEN=your_cloudflare_api_token_here
+LANG=en
+```
 ```
 
-Edit `dominios.txt` with the domains you want to update:
+Edit `dominios.txt` with the domains to update (one per line):
 
 ```
 sub.domain.com true
@@ -110,7 +127,7 @@ chmod +x flare-up.sh
 ### Automate with cron
 
 ```bash
-*/5 * * * * /full/path/to/flare-up.sh >> /var/log/flare-up.log 2>&1
+*/5 * * * * /full/path/to/flare-up/flare-up.sh >> /var/log/flare-up.log 2>&1
 ```
 
 ---
@@ -118,8 +135,9 @@ chmod +x flare-up.sh
 ### Features
 
 - Automatically detects your public IP
-- Supports multiple domains and zones
+- Supports multiple domains and DNS zones
 - Creates records if missing
 - Preserves Cloudflare proxy settings
+- Bilingual messages (Spanish or English via `.env`)
 - Validates dependencies (`curl`, `jq`)
 - Verifies API token before running
