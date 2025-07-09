@@ -36,7 +36,7 @@ Contenido de ejemplo para `.env`:
 CF_API_TOKEN=your_cloudflare_api_token_here
 LANG=es
 ```
-```
+
 
 Edita el archivo `dominios.txt` con tus dominios (uno por línea):
 
